@@ -1,5 +1,5 @@
 # RWD_Novartis_Code
-노바틱스 공모전을 위한 코드
+For Novartis RWD Contest
 
 1. 파이쎤을 이용하여 KNHANES 데이터 분석
 2. R을 이용하여 효과 시뮬레이션
