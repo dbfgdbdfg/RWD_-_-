@@ -1,107 +1,119 @@
-# 2026 KNAPS Summer Professional Development Competition
-## RWD-Based Medical Strategy Competition (with Novartis Korea)
+# 🧬 2026 KNAPS 하계 직능계발대회
+## 📊 RWD-Based Medical 전략수립대회 (with 한국 노바티스)
 
-This repository contains the analysis code developed by **Team 13** for the **2026 KNAPS Summer Professional Development Competition – RWD-Based Medical Strategy Competition**, hosted in collaboration with **Novartis Korea**.
-
-Our project focused on developing a **real-world data (RWD)-based medical strategy for Leqvio (Inclisiran)** by integrating multiple analytical approaches, including population estimation, patient simulation, and pharmacovigilance analysis.
-
-🏅 **Finalist (Advanced to the Final Round)**
+**13팀 (Team 13)**  
+**본선 진출 (Finalist)**
 
 ---
 
-## Project Overview
+# 📖 프로젝트 소개
 
-The project consists of three independent analyses.
+**Leqvio (Inclisiran)**는 ASCVD 환자의 LDL-C 감소를 위한 **siRNA 기반 치료제**입니다.
 
-| Analysis | Description |
-|----------|-------------|
-| KNHANES Analysis | Estimate the potential target population eligible for Leqvio using the Korea National Health and Nutrition Examination Survey (KNHANES). |
-| Patient Simulation | Simulate patient eligibility and treatment scenarios using R. |
-| Pharmacovigilance | Evaluate the post-marketing safety profile of Leqvio using the FDA Adverse Event Reporting System (FAERS). |
+본 프로젝트에서는 **실제 임상 데이터(Real-World Data, RWD)**를 활용하여
+
+- 👥 국내 잠재 환자 규모를 추정하고,
+- 🧪 다양한 치료 시나리오를 시뮬레이션하며,
+- 🩺 시판 후 안전성을 평가함으로써,
+
+**Leqvio의 국내 활용 전략을 제시**하고자 하였습니다.
 
 ---
 
-# Repository Structure
+# 🎯 프로젝트 개요
 
-```
+프로젝트는 세 가지 분석으로 구성되어 있습니다.
+
+| 📂 분석 | 📌 내용 |
+|---------|---------|
+| **KNHANES 분석** | 국민건강영양조사(KNHANES)를 이용하여 국내 Leqvio 잠재 대상 환자를 추정 |
+| **환자 시뮬레이션** | 다양한 치료 시나리오를 가정하여 Leqvio 도입 효과를 시뮬레이션 |
+| **이상사례 분석** | FDA FAERS 데이터를 이용하여 Leqvio의 시판 후 안전성 평가 |
+
+---
+
+# 📁 Repository Structure
+
+```text
 .
-├── FAERS_data_load.py        # Load and preprocess FAERS data
-├── FAERS_ROR_PRR.py          # Pharmacovigilance signal detection (ROR / PRR)
+├── FAERS_data_load.py        # FAERS 데이터 불러오기 및 전처리
+├── FAERS_ROR_PRR.py          # ROR, PRR을 이용한 Signal 분석
 │
-├── KNHANES_data_load.py      # Load and preprocess KNHANES data
+├── KNHANES_data_load.py      # KNHANES 데이터 불러오기 및 전처리
 │
-├── for_simulation.py         # Generate simulation input data
-├── Simulation.R              # Patient simulation using R
+├── for_simulation.py         # 시뮬레이션 입력 데이터 생성
+├── Simulation.R              # R 기반 환자 시뮬레이션
 │
 └── README.md
 ```
 
 ---
 
-# Analysis Details
+# 🔍 분석 내용
 
-## 1. KNHANES Analysis
+## ① 👥 KNHANES 분석
 
-### Objective
+### 🎯 목적
 
-Estimate the number and characteristics of patients who may be eligible for Leqvio in Korea.
+국민건강영양조사(KNHANES)를 이용하여 국내 **Leqvio 잠재 치료 대상자**를 추정하였습니다.
 
-### Data Source
+### 📊 사용 데이터
 
-- Korea National Health and Nutrition Examination Survey (KNHANES)
+- 국민건강영양조사(KNHANES)
 
-### Main Analysis
+### ✅ 수행 내용
 
-- Patient selection based on clinical criteria
-- Identification of potential Leqvio candidates
-- Demographic characteristics
-- Cardiovascular risk factor analysis
-- Lipid profile analysis
-
----
-
-## 2. Patient Simulation
-
-### Objective
-
-Simulate real-world treatment scenarios after the introduction of Leqvio.
-
-### Workflow
-
-- Generate simulation-ready datasets (`for_simulation.py`)
-- Perform patient simulation (`Simulation.R`)
-- Compare different treatment scenarios
-- Estimate changes in the eligible patient population
+- 대상 환자 선별
+- 잠재 환자 규모 추정
+- 연령 및 성별 분석
+- 심혈관 위험인자 분석
+- Lipid Profile 분석
 
 ---
 
-## 3. Pharmacovigilance Analysis
+## ② 🧪 환자 시뮬레이션
 
-### Objective
+### 🎯 목적
 
-Evaluate the post-marketing safety profile of Leqvio.
+Leqvio 도입 이후의 다양한 치료 시나리오를 예측하였습니다.
 
-### Data Source
+### ⚙️ 수행 과정
+
+- Python 기반 입력 데이터 생성
+- R 기반 시뮬레이션 수행
+- 시나리오 비교
+- 치료 대상 환자 규모 변화 예측
+
+---
+
+## ③ 🩺 이상사례 분석
+
+### 🎯 목적
+
+FAERS 데이터를 이용하여 Leqvio의 시판 후 안전성을 평가하였습니다.
+
+### 📊 사용 데이터
 
 - FDA Adverse Event Reporting System (FAERS)
 
-### Workflow
+### ⚙️ 수행 과정
 
-- Load and preprocess FAERS data (`FAERS_data_load.py`)
-- Perform disproportionality analysis (`FAERS_ROR_PRR.py`)
-- Detect potential safety signals
+- FAERS 데이터 전처리
+- ROR 계산
+- PRR 계산
+- Signal Detection
 
-### Signal Detection Metrics
+### 📈 사용 지표
 
 - Reporting Odds Ratio (ROR)
 - Proportional Reporting Ratio (PRR)
 
 ---
 
-# Technologies
+# 🛠️ 사용 기술
 
-- Python
-- R
+- 🐍 Python
+- 📈 R
 - pandas
 - NumPy
 - SciPy
@@ -109,30 +121,18 @@ Evaluate the post-marketing safety profile of Leqvio.
 
 ---
 
-# Competition Information
+# 🏆 대회 정보
 
-**Competition**
-
-2026 KNAPS Summer Professional Development Competition
-
-**Track**
-
-RWD-Based Medical Strategy Competition
-
-**Industry Partner**
-
-Novartis Korea
-
-**Team**
-
-Team 13
-
-**Achievement**
-
-🏅 Advanced to the Final Round
+| 항목 | 내용 |
+|------|------|
+| 🏅 대회 | 2026 KNAPS 하계 직능계발대회 |
+| 💊 분야 | RWD-Based Medical 전략수립대회 |
+| 🤝 협력 | 한국 노바티스 |
+| 👥 팀 | 13팀 |
+| 🎉 성과 | **본선 진출** |
 
 ---
 
-# Disclaimer
+# 📌 안내
 
-This repository contains the analysis code developed for the competition and is provided for research and educational purposes only.
+본 저장소는 **2026 KNAPS 하계 직능계발대회**에서 수행한 분석 코드를 정리한 것으로, 연구 및 학습 목적으로 공개되었습니다.
